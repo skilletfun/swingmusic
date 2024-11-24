@@ -88,7 +88,6 @@ class UserConfig:
         with open(path, "r") as f:
             settings = json.load(f)
 
-        print(settings)
         return settings
 
     def write_to_file(self, settings: dict[str, Any]):
