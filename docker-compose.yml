@@ -1,0 +1,11 @@
+services:
+  swingmusic:
+    build:
+      target: APP
+      context: .
+    container_name: swingmusic
+    volumes:
+      - /home/skilletfun/Music:/music
+    ports:
+      - "1970:1970"
+    restart: unless-stopped
