@@ -49,6 +49,8 @@ class UserConfig:
     # plugins
     enablePlugins: bool = True
 
+    autoShuffle: bool = True
+
     def __post_init__(self):
         """
         Loads the config file and sets the values to this instance
@@ -86,6 +88,7 @@ class UserConfig:
         with open(path, "r") as f:
             settings = json.load(f)
 
+        print(settings)
         return settings
 
     def write_to_file(self, settings: dict[str, Any]):
