@@ -1,6 +1,6 @@
 FROM node:latest AS CLIENT
 
-RUN git clone --depth 1 https://github.com/swing-opensource/swingmusic-client.git client
+RUN git clone --depth 1 --single-branch --branch master https://github.com/skilletfun/webclient.git client
 
 WORKDIR /client
 
@@ -11,7 +11,7 @@ WORKDIR /client
 RUN yarn install
 RUN yarn build
 
-FROM python:3.11-slim
+FROM python:3.11-slim AS APP
 WORKDIR /app/swingmusic
 
 # Copy the files in the current dir into the container
